@@ -1,7 +1,7 @@
  import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-/* ---------------- DATA (10 PACKAGES) ---------------- */
+/* ---------------- DATA ---------------- */
 export const packages = [
   {
     id: 1,
@@ -85,31 +85,32 @@ export const packages = [
   },
 ];
 
-/* ---------------- COMPONENT ---------------- */
 export default function Packages() {
   const navigate = useNavigate();
 
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("all");
 
-  /* CHAOS STATES (UNCHANGED) */
-  const [bossFight, setBossFight] = useState(false);
-  const [bossHp, setBossHp] = useState(100);
-  const [playerHp, setPlayerHp] = useState(100);
-
+  /* THIEF */
   const [thief, setThief] = useState(false);
   const [thiefPos, setThiefPos] = useState(-100);
 
   const [popupMsg, setPopupMsg] = useState("");
 
-  /* ---------------- VIEW CAPTCHA STATES (NEW) ---------------- */
+  /* CAPTCHA */
   const [captchaOpen, setCaptchaOpen] = useState(false);
   const [selectedPkg, setSelectedPkg] = useState(null);
   const [captcha, setCaptcha] = useState("");
   const [input, setInput] = useState("");
   const [timeLeft, setTimeLeft] = useState(20);
 
-  /* ---------------- GLITCH SOUND ---------------- */
+  /* 🔥 BOSS FIGHT (ONLY BOOK NOW) */
+  const [fightOpen, setFightOpen] = useState(false);
+  const [fightBossHp, setFightBossHp] = useState(100);
+  const [fightPlayerHp, setFightPlayerHp] = useState(100);
+  const [fightPkg, setFightPkg] = useState(null);
+
+  /* GLITCH SOUND */
   const playGlitch = () => {
     try {
       const ctx = new (window.AudioContext || window.webkitAudioContext)();
@@ -118,7 +119,6 @@ export default function Packages() {
 
       osc.type = "square";
       osc.frequency.value = 120;
-
       gain.gain.value = 0.05;
 
       osc.connect(gain);
@@ -126,56 +126,153 @@ export default function Packages() {
 
       osc.start();
       osc.stop(ctx.currentTime + 0.12);
-    } catch (e) {}
+    } catch {}
   };
 
-  /* ---------------- CAPTCHA ---------------- */
-  const generateCaptcha = () => {
-    setCaptcha(Math.random().toString(36).substring(2, 8));
-  };
-
-  /* ---------------- VIEW HANDLER ---------------- */
-  const handleView = (p) => {
-    setSelectedPkg(p);
-    setCaptchaOpen(true);
-    setTimeLeft(20);
-    generateCaptcha();
-    setInput("");
-  };
-
-  /* ---------------- AUTO TIMER ---------------- */
-  useEffect(() => {
-    if (!captchaOpen || !selectedPkg) return;
-
-    const timer = setInterval(() => {
-      setTimeLeft((prev) => {
-        if (prev <= 1) {
-          clearInterval(timer);
-          setCaptchaOpen(false);
-          navigate(`/packages/${selectedPkg.id}`);
-          return 0;
-        }
-        return prev - 1;
-      });
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, [captchaOpen, selectedPkg]);
-
-  /* ---------------- FILTER ---------------- */
+  /* FILTER */
   const filtered = packages.filter((p) => {
     const matchType = filter === "all" ? true : p.type === filter;
     const matchSearch = p.title.toLowerCase().includes(search.toLowerCase());
     return matchType && matchSearch;
   });
 
-  /* ---------------- UI ---------------- */
+  /* THIEF EFFECT */
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setThief(true);
+      setThiefPos(-100);
+
+      let pos = -100;
+      const move = setInterval(() => {
+        pos += 12;
+        setThiefPos(pos);
+        if (pos > window.innerWidth) {
+          clearInterval(move);
+          setThief(false);
+        }
+      }, 40);
+    }, 9000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  /* POPUP */
+  useEffect(() => {
+    const t = setInterval(() => {
+      const msgs = [
+        "⚠ PRICE DISTORTION ACTIVE",
+        "📡 SYSTEM GLITCH DETECTED",
+        "💀 SERVER FAILURE",
+        "🧠 MEMORY CORRUPTION",
+      ];
+      setPopupMsg(msgs[Math.floor(Math.random() * msgs.length)]);
+      setTimeout(() => setPopupMsg(""), 2000);
+    }, 7000);
+
+    return () => clearInterval(t);
+  }, []);
+
+  /* CAPTCHA VIEW */
+  const handleView = (pkg) => {
+    setSelectedPkg(pkg);
+    setCaptchaOpen(true);
+    setTimeLeft(20);
+    setInput("");
+    setCaptcha(Math.random().toString(36).substring(2, 8));
+  };
+
+  useEffect(() => {
+    if (!captchaOpen) return;
+
+    const timer = setInterval(() => {
+      setTimeLeft((t) => {
+        if (t <= 1) {
+          clearInterval(timer);
+          setCaptchaOpen(false);
+          navigate(`/packages/${selectedPkg.id}`);
+          return 0;
+        }
+        return t - 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [captchaOpen, selectedPkg]);
+
+  /* ⚔️ BOOK NOW → BOSS FIGHT (ONLY CHANGE) */
+  const addToCart = (pkg) => {
+    setFightOpen(true);
+    setFightBossHp(100);
+    setFightPlayerHp(100);
+    setFightPkg(pkg);
+
+    playGlitch();
+
+    const fight = setInterval(() => {
+      playGlitch();
+
+      setFightBossHp((b) => {
+        const next = b - Math.random() * 20;
+
+        if (next <= 0) {
+          clearInterval(fight);
+          setFightOpen(false);
+
+          const cart = JSON.parse(localStorage.getItem("cart")) || [];
+          if (!cart.find((i) => i.id === pkg.id)) {
+            localStorage.setItem("cart", JSON.stringify([...cart, pkg]));
+          }
+
+          navigate("/payment");
+        }
+
+        return next;
+      });
+
+      setFightPlayerHp((p) => {
+        const next = p - Math.random() * 12;
+
+        if (next <= 0) {
+          clearInterval(fight);
+          setFightOpen(false);
+          alert("💀 YOU LOST THE BOSS FIGHT");
+        }
+
+        return next;
+      });
+    }, 500);
+  };
+
   return (
     <div className="min-h-screen bg-black text-white px-6 py-10">
+{/* HERO HEADER */}
+<div className="text-center mb-8">
+  <h1 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-pink-500 to-yellow-400 text-transparent bg-clip-text animate-pulse">
+    ✈ Explore Hidden India
+  </h1>
+
+  <p className="text-gray-400 mt-2 text-sm md:text-base">
+    Choose your destination • Unlock chaos travel experiences
+  </p>
+
+  {/* glowing line */}
+  <div className="mt-4 flex justify-center">
+    <div className="h-[2px] w-40 bg-gradient-to-r from-cyan-500 via-pink-500 to-yellow-500 blur-sm opacity-70"></div>
+  </div>
+</div>
+      {/* SEARCH */}
+      <div className="mb-6">
+        <input
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          placeholder="Search destinations..."
+          className="w-full px-5 py-3 rounded-2xl bg-white/10 border border-white/20"
+        />
+      </div>
 
       {/* POPUP */}
       {popupMsg && (
-        <div className="fixed top-10 left-1/2 -translate-x-1/2 bg-red-500 text-white px-4 py-2 rounded-xl z-50 animate-pulse">
+        <div className="fixed top-10 left-1/2 -translate-x-1/2 bg-red-500 px-4 py-2 rounded-xl animate-pulse">
           {popupMsg}
         </div>
       )}
@@ -183,140 +280,147 @@ export default function Packages() {
       {/* THIEF */}
       {thief && (
         <div
-          className="fixed top-1/2 z-50 text-3xl animate-bounce"
-          style={{ left: `${thiefPos}px` }}
+          className="fixed top-1/2 text-3xl"
+          style={{ left: thiefPos }}
         >
           🧟‍♂️
         </div>
       )}
 
-      {/* TITLE */}
-      <h1 className="text-4xl font-extrabold text-center mb-6 bg-gradient-to-r from-cyan-400 via-white to-pink-400 text-transparent bg-clip-text">
-        Explore Travel Packages
-      </h1>
-
-      {/* SEARCH */}
-      <input
-        className="w-full mb-6 p-3 rounded-xl bg-white/10 border border-white/10"
-        placeholder="Search destinations..."
-        onChange={(e) => setSearch(e.target.value)}
-      />
-
       {/* FILTER */}
-      <div className="flex gap-3 mb-10 justify-center flex-wrap">
-        {["all", "budget", "premium"].map((t) => (
-          <button
-            key={t}
-            onClick={() => setFilter(t)}
-            className={`
-              px-6 py-2 rounded-full text-sm font-bold uppercase tracking-widest border transition-all duration-300
-              ${
-                filter === t
-                  ? "bg-gradient-to-r from-cyan-500 to-pink-500 text-black shadow-[0_0_20px_rgba(0,255,255,0.4)] scale-105"
-                  : "bg-white/5 text-white border-white/10 hover:bg-white/10 hover:scale-105"
-              }
-            `}
-          >
-            {t}
-          </button>
-        ))}
-      </div>
+ <div className="flex justify-center gap-3 mb-8 flex-wrap">
+  {["all", "budget", "premium"].map((t) => (
+    <button
+      key={t}
+      onClick={() => setFilter(t)}
+      className={`
+        px-6 py-2 rounded-full text-sm font-medium transition-all duration-300
+        border border-white/10 backdrop-blur-md
+        hover:scale-105 hover:bg-white/20 hover:border-white/30
+        active:scale-95
+        ${
+          filter === t
+            ? "bg-gradient-to-r from-yellow-400 to-orange-500 text-black shadow-lg shadow-orange-500/30"
+            : "bg-white/10 text-white"
+        }
+      `}
+    >
+      {t.toUpperCase()}
+    </button>
+  ))}
+</div>
 
       {/* GRID */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid md:grid-cols-3 gap-6">
         {filtered.map((p) => (
-          <div key={p.id} className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
+          <div key={p.id} className="bg-white/5 rounded-2xl overflow-hidden">
+            <img src={p.img} className="h-40 w-full object-cover" />
 
-            <img src={p.img} className="h-44 w-full object-cover" />
+            <div className="p-4 rounded-xl bg-white/10 backdrop-blur-md border border-white/10 hover:scale-[1.02] transition-all duration-300 shadow-lg">
+  
+  <h2 className="text-xl font-bold text-white tracking-wide">
+    {p.title}
+  </h2>
 
-            <div className="p-4">
-              <h2 className="text-xl font-bold">{p.title}</h2>
+  <div className="flex justify-between items-center mt-3">
+    
+    {/* price badge */}
+    <span className="px-3 py-1 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 text-black font-semibold text-sm shadow-md">
+      ₹{p.price}
+    </span>
 
-              <div className="flex justify-between items-center mt-2">
-                <span className="text-cyan-300 font-bold">₹{p.price}</span>
+    {/* type badge */}
+    <span className="px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white text-xs uppercase tracking-wider">
+      {p.type}
+    </span>
 
-                <span
-                  className={`px-3 py-1 text-xs font-bold rounded-full uppercase tracking-wider border
-                    ${
-                      p.type === "premium"
-                        ? "bg-pink-500/20 text-pink-300 border-pink-500/40"
-                        : "bg-cyan-500/20 text-cyan-300 border-cyan-500/40"
-                    }
-                  `}
-                >
-                  {p.type}
-                </span>
-              </div>
+  </div>
+</div>
 
               <div className="flex gap-2 mt-4">
-
-                {/* VIEW BUTTON (WORKING) */}
                 <button
                   onClick={() => handleView(p)}
-                  className="flex-1 bg-white/10 py-2 rounded-xl hover:bg-white/20"
+                  className="flex-1 bg-white/10 py-2 rounded-xl"
                 >
                   View
                 </button>
 
-                {/* BOOK NOW (UNCHANGED CHAOS HOOKS) */}
+                {/* ONLY THIS BUTTON UPGRADED */}
                 <button
-                  onClick={() => {
-                    setBossFight(true);
-                    setBossHp(100);
-                    setPlayerHp(100);
-                    playGlitch();
-                  }}
+                  onClick={() => addToCart(p)}
                   className="flex-1 bg-cyan-500 text-black font-bold py-2 rounded-xl"
                 >
                   Book Now
                 </button>
-
               </div>
             </div>
-          </div>
+          
         ))}
       </div>
 
-      {/* CAPTCHA MODAL */}
-      {captchaOpen && (
+      {/* ⚔️ BOSS FIGHT MODAL */}
+      {fightOpen && (
         <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-50">
+          <div className="bg-white/10 p-6 rounded-2xl w-96 text-center border border-cyan-500">
 
-          <div className="bg-white/10 p-6 rounded-2xl w-[360px] border border-white/20">
-
-            <h2 className="text-center text-cyan-300 mb-2">
-              SECURITY CHECK
+            <h2 className="text-xl font-bold text-cyan-400 mb-4">
+              ⚔️ BOOKING BOSS FIGHT
             </h2>
 
-            <p className="text-center text-yellow-400 mb-3 animate-pulse">
-              Auto opening in {timeLeft}s
+            <div className="mb-3">
+              <p className="text-red-400">Boss HP</p>
+              <div className="h-2 bg-black">
+                <div className="bg-red-500 h-2" style={{ width: `${fightBossHp}%` }} />
+              </div>
+            </div>
+
+            <div className="mb-4">
+              <p className="text-green-400">Your HP</p>
+              <div className="h-2 bg-black">
+                <div className="bg-green-500 h-2" style={{ width: `${fightPlayerHp}%` }} />
+              </div>
+            </div>
+
+            <p className="text-xs text-gray-400 animate-pulse">
+              Fighting system...
             </p>
 
-            <div className="bg-black p-3 text-center text-red-400 tracking-widest rounded-xl">
+          </div>
+        </div>
+      )}
+
+      {/* CAPTCHA (UNCHANGED) */}
+      {captchaOpen && (
+        <div className="fixed inset-0 bg-black/90 flex items-center justify-center">
+          <div className="bg-white/10 p-6 rounded-2xl w-80">
+            <p className="text-center text-yellow-400 mb-2">
+              Auto open in {timeLeft}s
+            </p>
+
+            <div className="bg-black p-3 text-center text-red-400">
               {captcha}
             </div>
 
             <input
-              className="w-full mt-4 p-2 bg-black border border-white/10 rounded-xl"
+              className="w-full mt-3 p-2 bg-black border"
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Enter code..."
             />
 
             <button
+              className="w-full mt-3 bg-cyan-500 text-black py-2"
               onClick={() => {
                 if (input === captcha) {
                   setCaptchaOpen(false);
                   navigate(`/packages/${selectedPkg.id}`);
                 } else {
-                  generateCaptcha();
+                  setCaptcha(Math.random().toString(36).substring(2, 8));
                   setInput("");
                 }
               }}
-              className="w-full mt-4 bg-cyan-500 text-black py-2 rounded-xl font-bold"
             >
               VERIFY
             </button>
-
           </div>
         </div>
       )}

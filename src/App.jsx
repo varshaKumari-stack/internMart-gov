@@ -13,6 +13,7 @@ import Cart from "./pages/Cart";
 import Payment from "./pages/Payment";
 import Success from "./pages/Success";
 import PackageDetail from "./pages/PackageDetail";
+import Error from "./pages/Error.jsx";
 
 /* ROUTE GUARD */
 import ProtectedRoute from "./components/route/ProtectedRoute";
@@ -43,7 +44,7 @@ export default function App() {
           path="*"
           element={
             <div className="h-screen flex items-center justify-center bg-black text-white text-xl">
-              404 - Page Not Found
+              {<Error />}
             </div>
           }
         />
