@@ -92,13 +92,13 @@ Core product browsing page.
 
 — A highly animated public entry page with layered UI components:
 
-➡️ TopBar & Navbar
-➡️Hero Section
-➡️Fake Stats Panel
-➡️Ads Simulation
-➡️News & Notifications
-➡️Virus Warning UI
-➡️Footer Section
+💠 TopBar & Navbar
+💠Hero Section
+💠Fake Stats Panel
+💠Ads Simulation
+💠News & Notifications
+💠Virus Warning UI
+💠Footer Section
 
 ⭐ Uses React state + effects for dynamic UI simulations
 ⭐Creates subtle “system-style UI activity” feel
