@@ -11,7 +11,7 @@
 
 # 🎮 InternMart UI — Easter Eggs & Chaos Mode
 
-![Link Easter.md](./EASTER.md)
+![Easter.md](./EASTER.md)
 
 ## ⚙️ Tech Stack
 
