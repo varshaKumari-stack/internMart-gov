@@ -242,7 +242,6 @@ export default function LoginPage() {
 
     /* 🎮 START BOSS */
     setBoss(true);
-   
   };
 
   /* 🏆 WIN */
@@ -263,6 +262,7 @@ export default function LoginPage() {
       );
 
       login();
+    
 
       navigate("/dashboard");
     }, 1000);
@@ -351,7 +351,7 @@ export default function LoginPage() {
         {/* FORM */}
         <form onSubmit={handleSubmit} className="mt-6 space-y-4">
           <input
-            name="user_email"
+            name="user_email" autoComplete="off"
             placeholder="USER ID"
             className="w-full p-3 font-[cyr]
             bg-black border border-white/10
