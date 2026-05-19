@@ -28,27 +28,31 @@ It includes:
 
 > Replace these with real screenshots from your project
 
-### 🔐 Login Chaos Mode
+### 🔐 Landing Chaos Mode
 
-![Login Chaos](https://via.placeholder.com/900x450.png?text=Login+Boss+Fight+UI)
+![Landing Screen](./src/assets/image.png)
 
 ---
 
+### 🔐 Login Chaos Mode
+
+![Login Screen](./src/assets/login.png)
+
 ### 👊 Boss Fight System
 
-![Boss Fight](https://via.placeholder.com/900x450.png?text=Boss+Fight+Battle+Screen)
+![BOSS FIGHT Screen](./src/assets/fight.png)
 
 ---
 
 ### 🛰 System Alerts / Glitches
 
-![Alerts](https://via.placeholder.com/900x450.png?text=Fake+System+Alerts+UI)
+![glitch Screen](./src/assets/glitch.png)
 
 ---
 
 ### ⚔️ Packages Battle Mode
 
-![Packages](https://via.placeholder.com/900x450.png?text=Book+Now+Boss+Fight)
+![PACKAGE Screen](./src/assets/fight.png)
 
 ---
 
@@ -183,4 +187,5 @@ This project is designed for:
 - 🧪 frontend interaction learning
 
 ---
+
 ⭐ InternMart is not just a project — it's a controlled chaos simulator disguised as a UI system.
