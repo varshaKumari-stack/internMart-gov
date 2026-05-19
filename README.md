@@ -7,8 +7,11 @@
 - 🧭 Protected routing system
 - 🛒 Cart + payment simulation flow
 - 🎮 Interactive UI behavior & micro-interactions
+  It is designed as a **UI-rich frontend system with immersive transitions and simulated user flows**.
 
-It is designed as a **UI-rich frontend system with immersive transitions and simulated user flows**.
+# 🎮 InternMart UI — Easter Eggs & Chaos Mode
+
+![Link Easter.md](./EASTER.md)
 
 ## ⚙️ Tech Stack
 

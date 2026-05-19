@@ -1,11 +1,7 @@
 # 🎮 InternMart UI — Easter Eggs & Chaos Mode
 
-![InternMart](https://img.shields.io/badge/InternMart-UI%20Chaos-ff4d6d?style=for-the-badge)
-![React](https://img.shields.io/badge/React-Frontend-61dafb?style=for-the-badge)
-![Vite](https://img.shields.io/badge/Vite-Blazing%20Fast-646cff?style=for-the-badge)
-![Status](https://img.shields.io/badge/Mode-CHAOS%20ACTIVE-purple?style=for-the-badge)
+⚠️ This project contains **hidden UI easter eggs, glitch effects, and game-style interactions**.
 
-> ⚠️ This project contains **hidden UI easter eggs, glitch effects, and game-style interactions**.  
 > These are purely **frontend experiences** and do not affect backend logic.
 
 ---
