@@ -1,123 +1,185 @@
-# InternMart Gov (InternMart UI)
-
 ## Overview
 
-This project is a React + Vite application with a custom landing page experience.
+**InternMart Gov** is a modern React + Vite UI system featuring a travel/intern-style platform with:
 
-- Landing page: `src/pages/LandingPage.jsx`
-- Landing UI components: `src/components/landing/*`
+- ⚡ Fast landing page experience
+- 🔐 Authentication flow (login/signup/captcha/logout)
+- 🧭 Protected routing system
+- 🛒 Cart + payment simulation flow
+- 🎮 Interactive UI behavior & micro-interactions
 
-## Tech Stack
+It is designed as a **UI-rich frontend system with immersive transitions and simulated user flows**.
 
-- **React**
-- **Vite**
-- **Tailwind CSS**
-- **Framer Motion** (animations)
-- **lucide-react** (icons)
-- **react-router-dom** (routing)
+## ⚙️ Tech Stack
 
-## Run Locally
+- ⚛️ React (UI framework)
+- ⚡ Vite (build tool)
+- 🎨 Tailwind CSS (styling)
+- 🎞 Framer Motion (animations)
+- 🎯 lucide-react (icons)
+- 🌐 react-router-dom (routing)
 
-```bash
-npm install
-npm run dev
-```
+| Route      | Description          |
+| ---------- | -------------------- |
+| `/`        | Landing Page         |
+| `/login`   | Login Screen         |
+| `/signup`  | User Registration    |
+| `/logout`  | Logout Handler       |
+| `/captcha` | Captcha Verification |
 
-## Build
+| Route           | Description      |
+| --------------- | ---------------- |
+| `/dashboard`    | User Dashboard   |
+| `/products`     | Packages Listing |
+| `/packages/:id` | Package Details  |
+| `/cart`         | Shopping Cart    |
+| `/payment`      | Payment Flow     |
+| `/success`      | Success Screen   |
 
-```bash
-npm run build
-```
+## 📄 Feature Breakdown
 
-## Routes (from `src/App.jsx`)
+🏠 Landing Page (LandingPage.jsx)
 
-### Public
+A highly animated public entry page with layered UI components:
 
-- `/` → `src/pages/LandingPage.jsx`
-- `/login` → `src/pages/auth/LoginPage.jsx`
-- `/signup` → `src/pages/auth/Signup.jsx`
-- `/logout` → `src/pages/auth/logout.jsx`
-- `/captcha` → `src/pages/auth/Captcha.jsx`
+TopBar & Navbar
+Hero Section
+Fake Stats Panel
+Ads Simulation
+News & Notifications
+Virus Warning UI
+Footer Section
+✨ Behavior
+Uses React state + effects for dynamic UI simulations
+Creates subtle “system-style UI activity” feel
+🔐 Authentication System
+Login (LoginPage.jsx)
+Email/password authentication UI
+Integrated with useAuth().login()
+Error handling with UI feedback
+Redirect → /dashboard
+Signup (Signup.jsx)
+User registration form
+Password visibility toggle
+Basic validation flow
+Redirect → /login
+Captcha (Captcha.jsx)
+Auto-generated captcha system
+Timer-based refresh
+Success → /dashboard
+Logout (logout.jsx)
+Clears session via useAuth().logout()
+Redirect → /login
+📊 Dashboard (Dashboard.jsx)
 
-### Protected (inside `ProtectedRoute`)
+A protected user dashboard featuring:
 
-- `/dashboard` → `src/pages/Dashboard.jsx`
-- `/products` → `src/pages/Packages.jsx`
-- `/packages/:id` → `src/pages/PackageDetail.jsx`
-- `/cart` → `src/pages/Cart.jsx`
-- `/payment` → `src/pages/Payment.jsx`
-- `/success` → `src/pages/Success.jsx`
+Cart state loaded from localStorage
+Random notification system
+Subtle glitch-style UI effects
+Navigation to products
 
-## Pages Documentation (basic)
+➡️ Action:
 
-### `src/pages/LandingPage.jsx`
+“Book Travel” → /products
+📦 Packages (Packages.jsx)
 
-- Public landing screen.
-- Shows these components in order: `TopBar`, `Navbar`, `HeroSection`, `FakeStats`, `FakeAds`, `News`, `Notification`, `VirusWarning`, `Footer`.
-- UI side effects: glitch/corruption style warnings using `useState` + `useEffect`.
+Core product browsing page.
 
-### `src/pages/auth/LoginPage.jsx`
+## Features:
 
-- Login UI (email + password).
-- `useAuth().login()` call karke authenticated banata hai.
-- Weak/invalid input par error visuals.
-- Boss-fight overlay style UI: win hone par `navigate('/dashboard')`.
+## 🏠 Landing Page (LandingPage.jsx)
 
-### `src/pages/auth/Signup.jsx`
+— A highly animated public entry page with layered UI components:
 
-- Signup form (name/email/password) + password show/hide.
-- Basic validation.
-- Success ke baad `navigate('/login')`.
+➡️ TopBar & Navbar
+➡️Hero Section
+➡️Fake Stats Panel
+➡️Ads Simulation
+➡️News & Notifications
+➡️Virus Warning UI
+➡️Footer Section
 
-### `src/pages/auth/Captcha.jsx`
+⭐ Uses React state + effects for dynamic UI simulations
+⭐Creates subtle “system-style UI activity” feel
 
-- Captcha verification UI.
-- Captcha auto-generate + auto-refresh timer.
-- Verify successful hone par `navigate('/dashboard')`.
+## 🔐 Authentication System
 
-### `src/pages/auth/logout.jsx`
+💠Login (LoginPage.jsx)
+💠Email/password authentication UI
+💠Integrated with useAuth().login()
+💠Error handling with UI feedback
+💠Redirect → /dashboard
 
-- `useAuth().logout()` karta hai.
-- Logout ke baad redirect: `navigate('/login', { replace: true })`.
+## Signup (Signup.jsx)
 
-### `src/pages/Dashboard.jsx` (protected)
+💠User registration form
+💠Password visibility toggle
+💠Basic validation flow
+💠Redirect → /login
 
-- Protected dashboard.
-- localStorage se `cart` load.
-- Random notifications show karta hai + glitch-like blur.
-- “Book Travel” button: `navigate('/products')`.
+## Logout (logout.jsx)
 
-### `src/pages/Packages.jsx` (protected)
+💠Clears session via useAuth().logout()
+💠Redirect → /login
 
-- Packages listing + search + filter (`budget/premium`).
-- “Book Now” ek boss-fight style effect ke baad package ko cart me add karta hai.
-- Cart ko localStorage me save karke `navigate('/payment')`.
+## Dashboard (Dashboard.jsx)
 
-### `src/pages/PackageDetail.jsx` (protected)
+✨A protected user dashboard featuring:
 
-- `:id` param ke basis pe package detail.
-- Loader ke baad package milta hai, warna “Package not found” + back.
+✨Cart state loaded from localStorage
+✨Random notification system
+✨Subtle glitch-style UI effects
+✨Navigation to products
 
-### `src/pages/Cart.jsx` (protected)
+➡️ Action:
+“Book Travel” → /products
 
-- Cart UI.
-- `useCart()` se items + total.
-- Checkout click → `navigate('/payment')`.
-- Empty cart state + toast/loader visuals.
+## Packages (Packages.jsx)
 
-### `src/pages/Payment.jsx` (protected)
+## Features:
 
-- Payment flow.
-- localStorage se cart load.
-- “Pay” → fake processing → captcha modal open.
-- Captcha confirm hone par cart clear + `navigate('/success')`.
+💠Search + filter system (budget / premium)
+💠Package cards with metadata
+💠Interactive booking flow
 
-### `src/pages/Success.jsx` (protected)
+## 🎮 Interaction:
 
-- Payment success confirmation.
-- `useCart().clearCart()`.
-- Auto countdown ke through redirect (UI me countdown based) + buttons.
+“Book Now” triggers animated flow
+💠On success:
+💠Adds item to cart
+💠Saves to localStorage
+💠Redirect → /payment
 
-## Notes
+## Package Details (PackageDetail.jsx)
 
-If you modify page components, ensure routing/imports remain consistent with `src/App.jsx`.
+✨Dynamic route-based detail view (:id)
+✨Loader state handling
+✨Fallback UI for invalid IDs
+
+## Cart (Cart.jsx)
+
+✨Displays cart items using useCart()
+✨Shows total calculation
+✨Checkout button → /payment
+✨Empty state handling included
+
+## Empty state handling included
+
+## Payment (Payment.jsx)
+
+✨Load cart from storage
+✨Click Pay → fake processing animation
+✨Captcha verification modal
+✨Success → clear cart → /success
+
+## Success Page (Success.jsx)
+
+💠Payment confirmation UI
+💠Auto redirect countdown
+💠Manual navigation option
+💠Cart cleanup handled
+
+## Keep routes consistent with App.jsx
+
+## Protected routes require auth context

@@ -24,8 +24,7 @@ export default function Footer() {
   useEffect(() => {
     const interval = setInterval(() => {
       setAlertMsg(alerts[Math.floor(Math.random() * alerts.length)]);
-
-      setTimeout(() => {
+   setTimeout(() => {
         setAlertMsg("");
       }, 3500);
     }, 5000);
@@ -121,17 +120,17 @@ export default function Footer() {
               duration: 2,
               repeat: Infinity,
             }}
-            className="inline-flex items-center gap-2 rounded-full border border-cyan-500/20 bg-cyan-500/10 px-5 py-2 text-xs tracking-[0.35em] text-cyan-300 backdrop-blur-xl"
+            className="inline-flex items-center gap-2 rounded-full border font-[CYR]  border-cyan-500/20 bg-cyan-500/10 px-5 py-2 text-xs tracking-[0.35em] text-cyan-300 backdrop-blur-xl"
           >
             <Activity size={14} />
             GOVERNMENT FOOTER CORE
           </motion.div>
 
-          <h2 className="mt-8 bg-gradient-to-r from-white via-cyan-300 to-pink-300 bg-clip-text text-5xl font-black tracking-tight text-transparent md:text-7xl">
+          <h2 className="mt-8 bg-gradient-to-r font-[cyr]   from-white via-cyan-300 to-pink-300 bg-clip-text text-5xl font-black tracking-tight text-transparent md:text-7xl">
             DIGITAL CHAOS
           </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-zinc-400">
+          <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-zinc-400 font-[AEO-REG] ">
             Advanced footer technology powered by unstable infrastructure and
             emotional bureaucracy.
           </p>
@@ -192,11 +191,11 @@ export default function Footer() {
                 }}
                 className="rounded-3xl border border-white/10 bg-black/30 p-6 text-center backdrop-blur-xl"
               >
-                <h3 className="bg-gradient-to-r from-cyan-300 to-pink-300 bg-clip-text text-5xl font-black text-transparent">
+                <h3 className="bg-gradient-to-r from-cyan-300 to-pink-300  bg-clip-text text-5xl font-[road] text-transparent">
                   {item.value}
                 </h3>
 
-                <p className="mt-3 text-zinc-400">{item.label}</p>
+                <p className="mt-3 font-[AEO-REG]  text-zinc-400">{item.label}</p>
               </motion.div>
             ))}
           </div>
@@ -231,7 +230,7 @@ export default function Footer() {
               >
                 {/* hover glow */}
                 <div
-                  className={`absolute inset-0 bg-gradient-to-br ${card.color} opacity-0 transition duration-500 group-hover:opacity-10`}
+                  className={`absolute inset-0  bg-gradient-to-br ${card.color} opacity-0 transition duration-500 group-hover:opacity-10`}
                 />
 
                 {/* top */}
@@ -256,11 +255,11 @@ export default function Footer() {
                 </div>
 
                 {/* content */}
-                <h3 className="relative z-10 mt-8 text-2xl font-black">
+                <h3 className="relative z-10 mt-8 text-2xl font-[wood]">
                   {card.title}
                 </h3>
 
-                <p className="relative z-10 mt-3 text-sm leading-relaxed text-zinc-400">
+                <p className="relative z-10 mt-3 text-sm leading-relaxed font-[AEO-REG]  text-zinc-400">
                   {card.desc}
                 </p>
 
@@ -299,7 +298,7 @@ export default function Footer() {
               }}
               className="mt-12 flex justify-center"
             >
-              <div className="rounded-full border border-pink-500/20 bg-pink-500/10 px-6 py-3 text-xs tracking-[0.3em] text-pink-300 backdrop-blur-xl">
+              <div className="rounded-full border font-[AEO-bold]  border-pink-500/20 bg-pink-500/10 px-6 py-3 text-xs tracking-[0.3em] text-pink-300 backdrop-blur-xl">
                 {alertMsg}
               </div>
             </motion.div>
@@ -318,14 +317,14 @@ export default function Footer() {
             }}
             className="flex items-center gap-3"
           >
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-r from-pink-500 to-cyan-500 font-black shadow-[0_0_30px_rgba(0,255,255,0.3)]">
+            <div className="flex h-12 w-12 items-center justify-center font-[cyr]  rounded-2xl bg-gradient-to-r from-pink-500 to-cyan-500 font-black shadow-[0_0_30px_rgba(0,255,255,0.3)]">
               G
             </div>
 
             <div>
-              <h4 className="font-black tracking-wide">INTERNMART.GOV</h4>
+              <h4 className="font-black tracking-wide font-[cyr] ">INTERNMART.GOV</h4>
 
-              <p className="text-xs text-zinc-500">
+              <p className="text-xs text-zinc-500 font-[AEO-REG] ">
                 Emotionally unstable since 2026
               </p>
             </div>
@@ -339,7 +338,7 @@ export default function Footer() {
               duration: 2,
               repeat: Infinity,
             }}
-            className="text-xs tracking-[0.25em] text-zinc-500"
+            className="text-xs  font-[libre] tracking-[0.25em] text-zinc-500"
           >
             ⚠ NATIONAL FOOTER STATUS: PARTIALLY OPERATIONAL
           </motion.p>

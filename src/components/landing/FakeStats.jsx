@@ -77,17 +77,17 @@ export default function FakeStats() {
             opacity: corruption > 70 ? [1, 0.4, 1] : 1,
           }}
           transition={{ duration: 1, repeat: Infinity }}
-          className="inline-flex items-center gap-2 rounded-full border border-cyan-500/20 bg-cyan-500/10 px-5 py-2 text-xs font-bold tracking-[0.35em] text-cyan-300"
+          className="inline-flex  font-[ROCKER] items-center gap-2 rounded-full border border-cyan-500/20 bg-cyan-500/10 px-5 py-2 text-xs font-bold tracking-[0.35em] text-cyan-300"
         >
           <WifiOff size={14} />
           LIVE GOVERNMENT METRICS
         </motion.div>
 
-        <h2 className="mt-6 text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-300 to-pink-300">
+        <h2 className="mt-6 text-5xl font-[PG]  md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-300 to-pink-300">
           NATIONAL STATUS
         </h2>
 
-        <p className="mt-4 text-zinc-400 max-w-2xl mx-auto">
+        <p className="mt-4 text-zinc-400 max-w-2xl mx-auto font-[AEO-REG] ">
           Real-time system behaving like it has emotions and personal problems.
         </p>
 
@@ -142,17 +142,17 @@ export default function FakeStats() {
               </div>
 
               {/* NUMBER */}
-              <h2 className="relative z-10 mt-8 text-6xl font-black">
+              <h2 className="relative z-10 mt-8 font-[AEO-BOLD]  text-6xl font-black">
                 {item.number}
               </h2>
 
-              <p className="relative z-10 mt-2 text-zinc-300">
+              <p className="relative z-10 mt-2 font-[AEO-REG]  text-zinc-300">
                 {item.text}
               </p>
 
               {/* WARNING */}
               <div className="relative z-10 mt-6 flex justify-between">
-                <span className="text-xs font-bold text-red-300 border border-red-500/20 px-3 py-1 rounded-full">
+                <span className="text-xs font-[WOOD]  text-red-300 border border-red-500/20 px-3 py-1 rounded-full">
                   {item.warning}
                 </span>
                 <span className="text-sm text-zinc-400">

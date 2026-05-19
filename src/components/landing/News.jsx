@@ -15,7 +15,7 @@ export default function News() {
 
         {/* first loop */}
         <motion.div
-          className="flex gap-10 text-yellow-300 font-bold tracking-wider min-w-full"
+          className="flex gap-10 text-yellow-300 font-[CYR] tracking-wider min-w-full"
           animate={{ x: ["0%", "-100%"] }}
           transition={{
             repeat: Infinity,
@@ -28,7 +28,7 @@ export default function News() {
 
         {/* second loop (seamless) */}
         <motion.div
-          className="flex gap-10 text-yellow-300 font-bold tracking-wider min-w-full"
+          className="flex gap-10 text-yellow-300 font-[AEO-REG] tracking-wider min-w-full"
           animate={{ x: ["0%", "-100%"] }}
           transition={{
             repeat: Infinity,

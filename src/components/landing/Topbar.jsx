@@ -22,7 +22,7 @@ export default function TopBar() {
       {/* MARQUEE */}
       <div className="flex overflow-hidden py-3">
         <motion.div
-          className="flex items-center gap-16 whitespace-nowrap text-sm font-bold uppercase tracking-widest text-red-300"
+          className="flex items-center gap-16 whitespace-nowrap text-sm font-[UNDER] uppercase tracking-widest text-red-300"
           animate={{ x: ["0%", "-50%"] }}
           transition={{
             duration: 20,

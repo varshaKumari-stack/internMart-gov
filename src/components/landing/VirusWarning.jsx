@@ -30,7 +30,7 @@ export default function VirusWarning() {
             }}
             className="flex items-center justify-between px-3 py-2 text-white"
           >
-            <h2 className="font-bold">⚠ VIRUS ALERT</h2>
+            <h2 className="font-[CYR]">⚠ VIRUS ALERT</h2>
 
             <button
               onClick={() => setOpen(false)}
@@ -45,7 +45,7 @@ export default function VirusWarning() {
             <motion.p
               animate={{ x: [-2, 2, -2] }}
               transition={{ repeat: Infinity, duration: 0.2 }}
-              className="mb-4 font-bold"
+              className="mb-4 font-[LIBRE]"
             >
               Your device may contain nationalism issues.
             </motion.p>
@@ -64,7 +64,7 @@ export default function VirusWarning() {
                 duration: 1.2,
                 repeat: Infinity,
               }}
-              className="w-full bg-red-500 px-4 py-2 text-white font-bold"
+              className="w-full bg-red-500 px-4 py-2 text-white font-[AEO-BOLD]"
             >
               FIX NOW
             </motion.button>

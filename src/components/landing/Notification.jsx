@@ -21,15 +21,15 @@ const Notification = () => {
       
       {/* HEADER */}
       <div className="mb-16 text-center">
-        <p className="mb-3 font-semibold tracking-widest text-pink-400 uppercase">
+        <p className="mb-3 font-[GOND] tracking-widest text-pink-400 uppercase">
           VERIFIED CITIZEN REVIEWS
         </p>
 
-        <h2 className="text-5xl font-black md:text-6xl">
+        <h2 className="text-5xl font-[GE-RIN]  font-black md:text-6xl">
           Emotional Testimonials
         </h2>
 
-        <p className="mx-auto mt-5 max-w-2xl text-zinc-400">
+        <p className="mx-auto mt-5 max-w-2xl font-[CYR]  text-zinc-400">
           Real experiences from emotionally damaged citizens.
         </p>
       </div>
@@ -64,7 +64,7 @@ const Notification = () => {
               </div>
 
               {/* REVIEW */}
-              <p className="text-lg leading-relaxed text-zinc-300">
+              <p className="text-lg font-[CYR]  leading-relaxed text-zinc-300">
                 "{review}"
               </p>
 
@@ -75,8 +75,8 @@ const Notification = () => {
                 </div>
 
                 <div>
-                  <h4 className="font-bold">Citizen #{1023 + i}</h4>
-                  <p className="text-sm text-zinc-500">Verified Victim</p>
+                  <h4 className="font-[LIBRE]">Citizen #{1023 + i}</h4>
+                  <p className="text-sm text-zinc-500 font-[PG] ">Verified Victim</p>
                 </div>
               </div>
             </motion.div>

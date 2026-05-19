@@ -5,7 +5,7 @@ import LandingPage from "./pages/LandingPage";
 import LoginPage from "./pages/auth/LoginPage";
 import Signup from "./pages/auth/Signup";
 import Logout from "./pages/auth/logout.jsx";
-import Captcha from "./pages/auth/Captcha";
+ 
 
 import Dashboard from "./pages/Dashboard";
 import Packages from "./pages/Packages";
@@ -27,7 +27,7 @@ export default function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/logout" element={<Logout />} />
-        <Route path="/captcha" element={<Captcha />} />
+         
 
         {/* PROTECTED */}
         <Route element={<ProtectedRoute />}>

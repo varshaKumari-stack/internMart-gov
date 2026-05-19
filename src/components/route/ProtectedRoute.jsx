@@ -1,4 +1,4 @@
- import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { useAuth } from "../../components/context/AuthContext";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
@@ -23,7 +23,9 @@ export default function ProtectedRoute() {
       <div className="h-screen flex items-center justify-center bg-black text-white">
         <motion.div className="text-center">
           <div className="w-10 h-10 border-4 border-red-500 border-t-transparent rounded-full animate-spin mx-auto"></div>
-          <p className="mt-3 text-gray-400">Checking access...</p>
+          <p className="mt-3 text-gray-400 font-[AEO-REG] ">
+            Checking access...
+          </p>
         </motion.div>
       </div>
     );
@@ -38,10 +40,10 @@ export default function ProtectedRoute() {
         className="h-screen flex items-center justify-center bg-black text-white"
       >
         <div className="text-center">
-          <h1 className="text-3xl font-bold text-red-400">
+          <h1 className="text-7xl   text-red-400 font-[road] ">
             Access Denied
           </h1>
-          <p className="text-gray-400 mt-2">
+          <p className="text-gray-400 mt-2 font-[road] text-6xl ">
             Redirecting to login...
           </p>
 

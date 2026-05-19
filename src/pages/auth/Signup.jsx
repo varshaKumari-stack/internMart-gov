@@ -100,7 +100,7 @@ export default function Signup() {
 
   return (
     <div
-      className={`relative flex h-screen w-screen overflow-hidden bg-black text-white transition-all duration-700 animate-[fadeIn_1s_ease] ${
+      className={`relative flex h-screen w-screen overflow-hidden font-[aeo-bold] bg-black text-white transition-all duration-700 animate-[fadeIn_1s_ease] ${
         glitch ? "scale-[1.003] blur-[1px]" : ""
       }`}
     >
@@ -158,7 +158,7 @@ export default function Signup() {
             </h3>
 
             <div className="mt-3 flex items-center justify-between">
-              <button className="rounded-xl bg-white/10 px-3 py-1 text-[10px]">
+              <button className="rounded-xl bg-white/10 px-3 py-1 text-[10px] font-[aeo-reg]">
                 Ignore
               </button>
 
@@ -191,28 +191,28 @@ export default function Signup() {
             </div>
 
             <div>
-              <h1 className="font-['Orbitron'] text-4xl font-black tracking-wide">
+              <h1 className="font-['Orbitron'] text-4xl font-black tracking-wide font-[aeo-bold]">
                 GovMart
               </h1>
 
-              <p className="mt-1 text-xs uppercase tracking-[0.4em] text-zinc-500">
+              <p className="mt-1 text-xs uppercase tracking-[0.4em] font-[aeo-bold] text-zinc-500">
                 Citizen Registration Division
               </p>
             </div>
           </div>
 
           <div className="mt-24">
-            <p className="text-sm uppercase tracking-[0.4em] text-purple-400">
+            <p className="text-sm uppercase tracking-[0.4em] text-purple-400 font-[aeo-bold]">
               Identity Creation Portal
             </p>
 
-            <h2 className="mt-5 font-['Orbitron'] text-6xl font-black leading-tight tracking-tight">
+            <h2 className="mt-5 font-['Orbitron'] text-6xl font-[cyr] leading-tight tracking-tight">
               Citizen
               <br />
               Registration
             </h2>
 
-            <p className="mt-6 max-w-md text-zinc-400">
+            <p className="mt-6 max-w-md text-zinc-400 font-[aeo-bold]">
               Create your unstable government-approved tourism identity profile.
             </p>
           </div>
@@ -232,11 +232,11 @@ export default function Signup() {
               <UserPlus size={36} />
             </div>
 
-            <p className="mt-6 text-[11px] uppercase tracking-[0.4em] text-purple-400">
+            <p className="mt-6 text-[11px] uppercase tracking-[0.4em] font-[aeo-bold] text-purple-400">
               Citizen Registration Portal
             </p>
 
-            <h1 className="mt-4 bg-gradient-to-r from-white via-purple-200 to-cyan-200 bg-clip-text text-5xl font-black text-transparent">
+            <h1 className="mt-4  font-[aeo-bold] bg-gradient-to-r from-white via-purple-200 to-cyan-200 bg-clip-text text-5xl font-black text-transparent">
               Create Account
             </h1>
           </div>
@@ -245,7 +245,7 @@ export default function Signup() {
           <form onSubmit={handleSubmit} className="mt-10 space-y-6">
             {/* NAME */}
             <div>
-              <label className="text-xs uppercase tracking-[0.2em] text-zinc-500">
+              <label className="text-xs uppercase tracking-[0.2em]  font-[cyr] text-zinc-500">
                 Full Name
               </label>
 
@@ -254,13 +254,13 @@ export default function Signup() {
                 name="user_name"
                 autoComplete="off"
                 placeholder="Citizen Name"
-                className="mt-3 w-full rounded-2xl border border-white/10 bg-black/40 px-5 py-4 text-white placeholder:text-zinc-600 outline-none transition-all duration-300 focus:border-purple-400 focus:bg-black/60 focus:shadow-[0_0_30px_rgba(168,85,247,0.25)]"
+                className="mt-3 w-full rounded-2xl  font-[cyr] border border-white/10 bg-black/40 px-5 py-4 text-white placeholder:text-zinc-600 outline-none transition-all duration-300 focus:border-purple-400 focus:bg-black/60 focus:shadow-[0_0_30px_rgba(168,85,247,0.25)]"
               />
             </div>
 
             {/* EMAIL */}
             <div>
-              <label className="text-xs uppercase tracking-[0.2em] text-zinc-500">
+              <label className="text-xs uppercase tracking-[0.2em]  font-[cyr] text-zinc-500">
                 Citizen Email
               </label>
 
@@ -269,13 +269,13 @@ export default function Signup() {
                 name="user_email"
                 autoComplete="off"
                 placeholder="citizen@gov.in"
-                className="mt-3 w-full rounded-2xl border border-white/10 bg-black/40 px-5 py-4 text-white placeholder:text-zinc-600 outline-none transition-all duration-300 focus:border-purple-400 focus:bg-black/60 focus:shadow-[0_0_30px_rgba(168,85,247,0.25)]"
+                className="mt-3 w-full  font-[cyr] rounded-2xl border border-white/10 bg-black/40 px-5 py-4 text-white placeholder:text-zinc-600 outline-none transition-all duration-300 focus:border-purple-400 focus:bg-black/60 focus:shadow-[0_0_30px_rgba(168,85,247,0.25)]"
               />
             </div>
 
             {/* PASSWORD */}
             <div>
-              <label className="text-xs uppercase tracking-[0.2em] text-zinc-500">
+              <label className="text-xs uppercase tracking-[0.2em]  font-[cyr] text-zinc-500">
                 Security Password
               </label>
 
@@ -285,7 +285,7 @@ export default function Signup() {
                   name="user_password"
                   autoComplete="new-password"
                   placeholder="Strong unstable password"
-                  className="w-full rounded-2xl border border-white/10 bg-black/40 px-5 py-4 pr-14 text-white placeholder:text-zinc-600 outline-none transition-all duration-300 focus:border-purple-400 focus:bg-black/60 focus:shadow-[0_0_30px_rgba(168,85,247,0.25)]"
+                  className="w-full rounded-2xl border border-white/10  font-[cyr] bg-black/40 px-5 py-4 pr-14 text-white placeholder:text-zinc-600 outline-none transition-all duration-300 focus:border-purple-400 focus:bg-black/60 focus:shadow-[0_0_30px_rgba(168,85,247,0.25)]"
                 />
 
                 <button
@@ -315,7 +315,7 @@ export default function Signup() {
                 }}
                 className="group relative overflow-hidden rounded-2xl bg-gradient-to-r from-purple-500 via-pink-500 to-cyan-500 px-14 py-4 text-lg font-black shadow-[0_0_40px_rgba(168,85,247,0.35)] transition-all duration-300 hover:scale-110 hover:shadow-[0_0_80px_rgba(168,85,247,0.65)] active:scale-95"
               >
-                <span className="relative z-10">Register Citizen</span>
+                <span className="relative z-10  font-[cyr]">Register Citizen</span>
 
                 <div className="absolute inset-0 translate-x-[-100%] bg-white/20 transition-transform duration-700 group-hover:translate-x-[100%]" />
               </button>
@@ -324,11 +324,11 @@ export default function Signup() {
 
           {/* FOOTER */}
           <div className="mt-8 text-center">
-            <p className="text-xs text-zinc-500">Already registered?</p>
+            <p className="text-xs text-zinc-500  font-[cyr]">Already registered?</p>
 
             <Link
               to="/login"
-              className="mt-2 inline-block text-sm font-semibold text-purple-300 transition hover:text-purple-200"
+              className="mt-2 inline-block text-sm font-[gond] text-purple-300 transition hover:text-purple-200"
             >
               Authenticate Citizen
             </Link>
@@ -341,11 +341,11 @@ export default function Signup() {
         <div className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-black">
           <div className="h-28 w-28 animate-spin rounded-full border-4 border-purple-500 border-t-transparent"></div>
 
-          <h2 className="mt-8 font-['Orbitron'] text-5xl font-black">
+          <h2 className="mt-8 font-['Orbitron'] text-5xl font-[libre]">
             Creating Identity...
           </h2>
 
-          <p className="mt-4 text-zinc-500">
+          <p className="mt-4 text-zinc-500  font-[ge]">
             Please wait while we confuse the database.
           </p>
         </div>
@@ -355,17 +355,17 @@ export default function Signup() {
       <div className="fixed bottom-6 left-6 animate-shakeSlow rounded-[28px] border border-red-500/20 bg-black/80 p-5 shadow-[0_0_40px_rgba(255,0,0,0.15)] backdrop-blur-2xl">
         <div className="flex items-start gap-4">
           <div className="rounded-2xl bg-red-500/20 p-3">
-            <AlertTriangle className="text-red-400" size={24} />
+            <AlertTriangle className="text-red-400  font-[cyr]" size={24} />
           </div>
 
           <div>
-            <p className="text-xs uppercase tracking-[0.3em] text-red-400">
+            <p className="text-xs uppercase tracking-[0.3em] text-red-400  font-[road]">
               Virus Alert
             </p>
 
-            <h3 className="mt-1 text-lg font-black">Registration Unsafe</h3>
+            <h3 className="mt-1 text-lg font-[read]">Registration Unsafe</h3>
 
-            <p className="mt-1 text-xs text-zinc-400">
+            <p className="mt-1 text-xs text-zinc-400 font-[cyr]">
               Continue at your own confusion.
             </p>
           </div>

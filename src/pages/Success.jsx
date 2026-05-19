@@ -64,7 +64,7 @@ export default function Success() {
 
       {/* FAKE SCAN OVERLAY */}
       {scan && (
-        <div className="absolute inset-0 bg-cyan-500/10 animate-pulse flex items-center justify-center text-cyan-300 text-sm">
+        <div className="absolute inset-0 font-[cyr] bg-cyan-500/10 animate-pulse flex items-center justify-center text-cyan-300 text-sm">
           Verifying booking data...
         </div>
       )}
@@ -73,33 +73,33 @@ export default function Success() {
       <div className="text-center p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md">
         <div className="text-5xl animate-bounce">🎉</div>
 
-        <h1 className="text-4xl font-bold text-green-400 mt-3">
+        <h1 className="text-4xl font-bold text-green-400 mt-3 font-[aeo-bold]">
           Booking Confirmed
         </h1>
 
-        <p className="text-zinc-400 mt-2">
+        <p className="text-zinc-400 mt-2 font-[aeo-bold]">
           Your payment is successful & ticket generated
         </p>
 
         {/* COUNTDOWN */}
-        <p className="mt-4 text-sm text-cyan-300">Redirecting in {count}s...</p>
+        <p className="mt-4 text-sm text-cyan-300 font-[aeo-bold]">Redirecting in {count}s...</p>
 
         {/* BUTTONS */}
         <div className="mt-6 flex gap-3 justify-center">
           <button
             onClick={() => navigate("/products")}
-            className="bg-white/10 px-4 py-2 rounded hover:bg-white/20"
+            className="bg-white/10 px-4 py-2 rounded hover:bg-white/20 font-[aeo-bold]"
           >
             Explore More
           </button>
 
-          <button className="bg-gradient-to-r from-green-500 to-cyan-500 px-4 py-2 rounded font-bold">
+          <button className="bg-gradient-to-r from-green-500 to-cyan-500 font-[aeo-bold] px-4 py-2 rounded font-bold">
             Download Ticket
           </button>
         </div>
 
         {/* SMALL NOTE */}
-        <p className="text-[10px] text-gray-500 mt-4">
+        <p className="text-[10px] text-gray-500 mt-4 font-[aeo-bold]">
           Secure Travel System • Auto-verification enabled
         </p>
       </div>

@@ -1,0 +1,88 @@
+@font-face {
+  font-family: Racing;
+  src: url("../src/fonts/Racing_Sans_One/");
+}
+@font-face {
+  font-family: Cyr;
+  src: url("./fonts/BC_Novatica_CYR_Regular.otf");
+}
+@font-face {
+  font-family: PG;
+  src: url("./fonts/Breakdown\ PG.otf");
+}
+@font-face {
+  font-family: CF;
+  src: url("./fonts/CfOneTwoTreesRegular-4LGp.ttf");
+}
+@font-face {
+  font-family: DANCE;
+  src: url("./fonts/DancingScript-VariableFont_wght.ttf");
+}
+@font-face {
+  font-family: FIRLEST;
+  src: url("./fonts/Firlest-Regular.otf");
+}
+@font-face {
+  font-family: AEO-BOLD;
+  src: url("./fonts/fonnts.com-Aeonik-Bold.ttf");
+}
+@font-face {
+  font-family: AEO-REG;
+  src: url("./fonts/fonnts.com-Aeonik-Regular.ttf");
+}
+@font-face {
+  font-family: GE;
+  src: url("./fonts/GECARIN.otf");
+}
+@font-face {
+  font-family: GE-RIN;
+  src: url("./fonts/GECARIN.ttf");
+}
+@font-face {
+  font-family: GOND;
+  src: url("./fontS/Gondens\ DEMO.otf");
+}
+@font-face {
+  font-family: LIBRE;
+  src: url("./fonts/LibreFranklin-VariableFont_wght.ttf");
+}
+@font-face {
+  font-family: ROCKER;
+  src: url("./fonts/NewRocker-Regular.ttf");
+}
+@font-face {
+  font-family: OB;
+  src: url("./fonts/OBLISK.otf");
+}
+@font-face {
+  font-family: OBLISK;
+  src: url("./fonts/OBLISK.ttf");
+}
+@font-face {
+  font-family: ROAD;
+  src: url("./fonts/RoadRage-Regular.ttf");
+}
+@font-face {
+  font-family: READ;
+  src: url("./fonts/Readme\ \(DEMO\).txt");
+}
+@font-face {
+  font-family: SUPER;
+  src: url("./fonts/SuperchargeStraightCondensed-RpVWV.otf");
+}
+@font-face {
+  font-family: UNDER;
+  src: url("./fonts/UnderThreatDemo-vnVD4.ttf");
+}
+@font-face {
+  font-family: VICTORY;
+  src: url("./fonts/Victory\ Striker\ Sans\ Demo.otf");
+}
+@font-face {
+  font-family: WAL;
+  src: url("./fonts/waltograph42.otf");
+}
+@font-face {
+  font-family: WOOD;
+  src: url("./fonts/Wooden\ Log.ttf");
+}

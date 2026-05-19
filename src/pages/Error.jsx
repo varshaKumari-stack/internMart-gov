@@ -38,14 +38,16 @@ export default function Error() {
       {/* HEADER BOSS UI */}
       <div className="p-4 border-b border-red-500 flex justify-between items-center">
         <div>
-          <h1 className="text-red-500 font-bold tracking-widest">
+          <h1 className="text-red-500 font-bold tracking-widest font-[libre]">
             PAGE BOSS: NOT FOUND ENTITY
           </h1>
-          <p className="text-xs text-gray-400">Fight to restore your UI</p>
+          <p className="text-xs text-gray-400 font-[aeo-bold]">
+            Fight to restore your UI
+          </p>
         </div>
 
         <div className="text-right">
-          <p className="text-xs text-gray-400">STABILITY</p>
+          <p className="text-xs text-gray-400 font-[cyr]">STABILITY</p>
           <div className="w-40 h-2 bg-gray-800 rounded overflow-hidden">
             <div
               className="h-full bg-red-500 transition-all"
@@ -61,12 +63,12 @@ export default function Error() {
         <motion.div
           animate={{ scale: [1, 1.05, 1], rotate: [0, 2, -2, 0] }}
           transition={{ repeat: Infinity, duration: 2 }}
-          className="text-[120px] font-extrabold text-red-600 drop-shadow-[0_0_25px_red]"
+          className="text-[120px] font-extrabold font-[under] text-red-600 drop-shadow-[0_0_25px_red]"
         >
           404
         </motion.div>
 
-        <p className="text-gray-400 mt-2 tracking-widest">
+        <p className="text-gray-400 mt-2 tracking-widest font-[aeo-reg]">
           THE PAGE HAS BEEN STOLEN BY THE THIEF
         </p>
 
@@ -109,7 +111,7 @@ export default function Error() {
 
         <button
           onClick={() => navigate("/")}
-          className="flex items-center gap-2 px-5 py-2 bg-red-600 hover:bg-red-500 rounded-xl"
+          className="flex items-center gap-2 px-5 py-2 font-[aeo-reg] bg-red-600 hover:bg-red-500 rounded-xl"
         >
           <Home size={16} /> Restore Home
         </button>

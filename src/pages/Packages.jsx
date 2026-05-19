@@ -1,4 +1,4 @@
- import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 /* ---------------- DATA ---------------- */
@@ -245,28 +245,28 @@ export default function Packages() {
 
   return (
     <div className="min-h-screen bg-black text-white px-6 py-10">
-{/* HERO HEADER */}
-<div className="text-center mb-8">
-  <h1 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-pink-500 to-yellow-400 text-transparent bg-clip-text animate-pulse">
-    ✈ Explore Hidden India
-  </h1>
+      {/* HERO HEADER */}
+      <div className="text-center mb-8">
+        <h1 className="text-3xl md:text-5xl   font-[cyr] font-bold bg-gradient-to-r from-cyan-400 via-pink-500 to-yellow-400 text-transparent bg-clip-text animate-pulse">
+          ✈ Explore Hidden India
+        </h1>
 
-  <p className="text-gray-400 mt-2 text-sm md:text-base">
-    Choose your destination • Unlock chaos travel experiences
-  </p>
+        <p className="text-gray-400 mt-2 text-sm md:text-base  font-[libre]">
+          Choose your destination • Unlock chaos travel experiences
+        </p>
 
-  {/* glowing line */}
-  <div className="mt-4 flex justify-center">
-    <div className="h-[2px] w-40 bg-gradient-to-r from-cyan-500 via-pink-500 to-yellow-500 blur-sm opacity-70"></div>
-  </div>
-</div>
+        {/* glowing line */}
+        <div className="mt-4 flex justify-center">
+          <div className="h-[2px] w-40 bg-gradient-to-r from-cyan-500 via-pink-500 to-yellow-500 blur-sm opacity-70"></div>
+        </div>
+      </div>
       {/* SEARCH */}
       <div className="mb-6">
         <input
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search destinations..."
-          className="w-full px-5 py-3 rounded-2xl bg-white/10 border border-white/20"
+          className="w-full  font-[wood] px-5 py-3 rounded-2xl bg-white/10 border border-white/20"
         />
       </div>
 
@@ -279,21 +279,18 @@ export default function Packages() {
 
       {/* THIEF */}
       {thief && (
-        <div
-          className="fixed top-1/2 text-3xl"
-          style={{ left: thiefPos }}
-        >
+        <div className="fixed top-1/2 text-3xl" style={{ left: thiefPos }}>
           🧟‍♂️
         </div>
       )}
 
       {/* FILTER */}
- <div className="flex justify-center gap-3 mb-8 flex-wrap">
-  {["all", "budget", "premium"].map((t) => (
-    <button
-      key={t}
-      onClick={() => setFilter(t)}
-      className={`
+      <div className="flex justify-center gap-3 mb-8  font-[cyr] flex-wrap">
+        {["all", "budget", "premium"].map((t) => (
+          <button
+            key={t}
+            onClick={() => setFilter(t)}
+            className={`
         px-6 py-2 rounded-full text-sm font-medium transition-all duration-300
         border border-white/10 backdrop-blur-md
         hover:scale-105 hover:bg-white/20 hover:border-white/30
@@ -304,11 +301,11 @@ export default function Packages() {
             : "bg-white/10 text-white"
         }
       `}
-    >
-      {t.toUpperCase()}
-    </button>
-  ))}
-</div>
+          >
+            {t.toUpperCase()}
+          </button>
+        ))}
+      </div>
 
       {/* GRID */}
       <div className="grid md:grid-cols-3 gap-6">
@@ -317,44 +314,40 @@ export default function Packages() {
             <img src={p.img} className="h-40 w-full object-cover" />
 
             <div className="p-4 rounded-xl bg-white/10 backdrop-blur-md border border-white/10 hover:scale-[1.02] transition-all duration-300 shadow-lg">
-  
-  <h2 className="text-xl font-bold text-white tracking-wide">
-    {p.title}
-  </h2>
+              <h2 className="text-xl font-bold  font-[cyr] text-white tracking-wide">
+                {p.title}
+              </h2>
 
-  <div className="flex justify-between items-center mt-3">
-    
-    {/* price badge */}
-    <span className="px-3 py-1 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 text-black font-semibold text-sm shadow-md">
-      ₹{p.price}
-    </span>
+              <div className="flex justify-between items-center mt-3">
+                {/* price badge */}
+                <span className="px-3 py-1  font-[aeo-reg] rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 text-black font-semibold text-sm shadow-md">
+                  ₹{p.price}
+                </span>
 
-    {/* type badge */}
-    <span className="px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white text-xs uppercase tracking-wider">
-      {p.type}
-    </span>
-
-  </div>
-</div>
-
-              <div className="flex gap-2 mt-4">
-                <button
-                  onClick={() => handleView(p)}
-                  className="flex-1 bg-white/10 py-2 rounded-xl"
-                >
-                  View
-                </button>
-
-                {/* ONLY THIS BUTTON UPGRADED */}
-                <button
-                  onClick={() => addToCart(p)}
-                  className="flex-1 bg-cyan-500 text-black font-bold py-2 rounded-xl"
-                >
-                  Book Now
-                </button>
+                {/* type badge */}
+                <span className="px-3 py-1   font-[aeo-bold] rounded-full bg-white/10 border border-white/20 text-white text-xs uppercase tracking-wider">
+                  {p.type}
+                </span>
               </div>
             </div>
-          
+
+            <div className="flex gap-2 mt-4">
+              <button
+                onClick={() => handleView(p)}
+                className="flex-1 bg-white/10 py-2 rounded-xl  font-[aeo-reg]"
+              >
+                View
+              </button>
+
+              {/* ONLY THIS BUTTON UPGRADED */}
+              <button
+                onClick={() => addToCart(p)}
+                className="flex-1 font-[aeo-reg] bg-cyan-500 text-white  active:scale-95 font-bold py-2 rounded-xl"
+              >
+                Book Now
+              </button>
+            </div>
+          </div>
         ))}
       </div>
 
@@ -362,29 +355,33 @@ export default function Packages() {
       {fightOpen && (
         <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-50">
           <div className="bg-white/10 p-6 rounded-2xl w-96 text-center border border-cyan-500">
-
-            <h2 className="text-xl font-bold text-cyan-400 mb-4">
+            <h2 className="text-xl font-bold text-cyan-400 mb-4 font-[aeo-bold]">
               ⚔️ BOOKING BOSS FIGHT
             </h2>
 
             <div className="mb-3">
-              <p className="text-red-400">Boss HP</p>
+              <p className="text-red-400 font-[super]">Boss HP</p>
               <div className="h-2 bg-black">
-                <div className="bg-red-500 h-2" style={{ width: `${fightBossHp}%` }} />
+                <div
+                  className="bg-red-500 h-2"
+                  style={{ width: `${fightBossHp}%` }}
+                />
               </div>
             </div>
 
             <div className="mb-4">
-              <p className="text-green-400">Your HP</p>
+              <p className="text-green-400 font-[rocker]">Your HP</p>
               <div className="h-2 bg-black">
-                <div className="bg-green-500 h-2" style={{ width: `${fightPlayerHp}%` }} />
+                <div
+                  className="bg-green-500 h-2"
+                  style={{ width: `${fightPlayerHp}%` }}
+                />
               </div>
             </div>
 
-            <p className="text-xs text-gray-400 animate-pulse">
+            <p className="text-xs text-gray-400 animate-pulse font-[road]">
               Fighting system...
             </p>
-
           </div>
         </div>
       )}
@@ -393,11 +390,11 @@ export default function Packages() {
       {captchaOpen && (
         <div className="fixed inset-0 bg-black/90 flex items-center justify-center">
           <div className="bg-white/10 p-6 rounded-2xl w-80">
-            <p className="text-center text-yellow-400 mb-2">
+            <p className="text-center text-yellow-400 mb-2 font-[aeo-reg]">
               Auto open in {timeLeft}s
             </p>
 
-            <div className="bg-black p-3 text-center text-red-400">
+            <div className="bg-black p-3 text-center text-red-400 font-[aeo-bold]">
               {captcha}
             </div>
 
@@ -408,7 +405,7 @@ export default function Packages() {
             />
 
             <button
-              className="w-full mt-3 bg-cyan-500 text-black py-2"
+              className="w-full mt-3 bg-cyan-700 text-white py-2 font-[wal] "
               onClick={() => {
                 if (input === captcha) {
                   setCaptchaOpen(false);
@@ -424,7 +421,6 @@ export default function Packages() {
           </div>
         </div>
       )}
-
     </div>
   );
 }

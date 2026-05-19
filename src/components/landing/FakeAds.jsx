@@ -42,17 +42,17 @@ export default function FakeAds() {
             initial={{ opacity: 0, scale: 0.7 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.7 }}
-            className="absolute w-[220px] rounded-2xl border border-pink-500/20 bg-black/60 p-4 backdrop-blur-xl shadow-[0_0_30px_rgba(255,0,120,0.15)]"
+            className="absolute w-[220px]   rounded-2xl border border-pink-500/20 bg-black/60 p-4 backdrop-blur-xl shadow-[0_0_30px_rgba(255,0,120,0.15)]"
             style={{
               top: `${ad.y}%`,
               left: `${ad.x}%`,
             }}
           >
-            <p className="text-[10px] tracking-[0.3em] text-pink-400">
+            <p className="text-[10px] tracking-[0.3em] font-[VICTORY]  text-pink-400">
               SPONSORED GOV AD
             </p>
 
-            <p className="mt-2 text-xs text-white">{ad.text}</p>
+            <p className="mt-2 text-xs font-[UNDER]  text-white">{ad.text}</p>
 
             <div className="mt-3 h-[2px] w-full bg-gradient-to-r from-pink-500 to-cyan-500 opacity-40" />
           </motion.div>
